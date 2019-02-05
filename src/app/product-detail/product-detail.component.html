@@ -1,0 +1,28 @@
+<section class="details-container" role="region" *ngFor="let p of iproducts">
+    <div class="row-wrap">
+      <div class="col-12">
+       <div class="bannerimg"  [ngStyle]="{'background-image': 'url(' + p.hero.href + ')'}"></div>
+      </div>
+ 
+    <div class="detail-image col-6" (click) = 'openModal()'>
+      <img [src]="p.thumbnail.href"/>
+    </div>
+    <div class="detail-content col-6">
+      <div class="p-title" [innerHTML]="p.name"></div>
+      <div class="r-price">${{p.priceRange.regular.low}} - ${{p.priceRange.regular.high}}</div>
+      <div class="s-price">Selling: ${{p.priceRange.selling.low}} - ${{p.priceRange.selling.high}}</div>
+    </div>
+  </div>
+  <div class="content-overlay" [class.opened]="showPopup">
+  <div class="overlay-popup">
+      <button (click)="closeModal()" class="navbtn--sm close"> X </button>
+    <drag-scroll #designslider  drag-scroll="true" >
+      <div class="designslider" *ngFor="let ds of p.images;" drag-scroll-item>       
+            <img src="{{ds.href}}" />         
+      </div>
+    </drag-scroll>
+    <button class="navbtn--sm leftbtn-sm" (click)="moveLeft()"> < </button>
+    <button class="navbtn--sm rightbtn-sm" (click)="moveRight()"> > </button>
+    </div>
+  </div>
+</section>

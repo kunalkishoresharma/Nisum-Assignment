@@ -1,0 +1,16 @@
+<section class="p-content" 	role="region">
+  <div class="row-wrap" *ngFor="let ps of data">
+    <div class="col-12"><h1 class="category-title" [innerHTML]="ps.name"></h1></div>
+    <div class="p-grid" *ngFor="let p of ps.groups">
+      <a class="p-grid-inner" [routerLink]="['/product',p.id]">
+          <img [src]="p.thumbnail.href"/>
+        <div class="p-a-content">
+           <div class="p-title" [innerHTML]="p.name"></div>
+           <div class="r-price">${{p.priceRange.regular.low}} - ${{p.priceRange.regular.high}}</div>
+           <div class="s-price">Selling: ${{p.priceRange.selling.low}} - ${{p.priceRange.selling.high}}</div>
+        </div>
+      </a>
+   </div>
+
+  </div>
+</section>

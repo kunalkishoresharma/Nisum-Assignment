@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Todo-App'`, () => {
+  it(`should have as title 'Nisum-Assignment'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Todo-App');
+    expect(app.title).toEqual('Nisum-Assignment');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Todo-App!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Nisum-Assignment!');
   });
 });
